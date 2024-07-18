@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'web' # Se agrega la app creada en la sección installed_apps
 ]
 
 MIDDLEWARE = [
