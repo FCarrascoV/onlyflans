@@ -3,17 +3,25 @@
 {% block content %}
 <div class="container">
     índice
+
+    <div class="row">
+        {% for flan in public_flans %}
+        <div class="col-6 col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ flan.image_url }}" class="card-img-top" alt="..." style="height: 15rem;">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    {{ flan.name }}
+                  </h5>
+                  <p class="card-text">
+                    {{ flan.description }}
+                  </p>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
 
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Índice</title>
-</head>
-<body>
-    Indice
-</body>
-</html>-->
+

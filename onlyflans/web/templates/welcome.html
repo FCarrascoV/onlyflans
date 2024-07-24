@@ -3,6 +3,24 @@
 {% block content %}
 <div class="container">
     bienvenido cliente
+
+        <div class="row">
+        {% for flan in private_flans %}
+        <div class="col-6 col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ flan.image_url }}" class="card-img-top" alt="..." style="height: 15rem;">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    {{ flan.name }}
+                  </h5>
+                  <p class="card-text">
+                    {{ flan.description }}
+                  </p>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
 
