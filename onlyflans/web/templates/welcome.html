@@ -2,23 +2,40 @@
 
 {% block content %}
 <div class="container">
-    bienvenido cliente
-
+    <!--bienvenido cliente-->
+    <div class="row mb-2">
+      <div class="col">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>
+            Bienvenido {{user.get_username}}
+          </h2>
+          <p>
+            Tenemos una lista de productos exclusivos para ti. ¿Quieres conocer más?
+          </p>
+          <a href="{% url 'contacto' %}" class="btn btn-outline-light">
+            Contáctanos
+          </a>
+        </div>
+      </div>
+    </div>
         <div class="row">
         {% for flan in private_flans %}
         <div class="col-6 col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="{{ flan.image_url }}" class="card-img-top" alt="..." style="height: 15rem;">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    {{ flan.name }}
-                  </h5>
-                  <p class="card-text">
-                    {{ flan.description }}
-                  </p>
-                </div>
+          <div class="card">
+              <img src="{{ flan.image_url }}" class="card-img-top" alt="flan" style="height: 15rem;">
+              <div class="card-body">
+                <h4 class="card-title">
+                  {{ flan.name }}
+                </h4>
+                <p class="card-text">
+                  {{ flan.description }}
+                </p>
+                <h6 class="card-text">
+                  ${{ flan.cost }}
+                </h6>
               </div>
-        </div>
+            </div>
+      </div>
         {% endfor %}
     </div>
 </div>

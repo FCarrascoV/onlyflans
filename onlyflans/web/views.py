@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import ContactForm, Flan
+from .models import ContactForm, Flan, Staff
 from .forms import ContactFormForm, ContactFormModelForm
+from django.contrib.auth.decorators import login_required
 
 def indice(request):
     public_flans = Flan.objects.filter(is_private=False)
@@ -16,6 +17,7 @@ def indice(request):
 def acerca(request):
     return render(request, 'about.html', {})
 
+@login_required
 def bienvenido(request):
     private_flans = Flan.objects.filter(is_private=True)
     return render(
@@ -23,6 +25,16 @@ def bienvenido(request):
         'welcome.html', 
         {
             'private_flans': private_flans
+        }
+)
+
+def equipo(request):
+    staffs = Staff.objects.all
+    return render(
+        request,
+        'staff.html', 
+        {
+            'staffs': staffs
         }
 )
 
